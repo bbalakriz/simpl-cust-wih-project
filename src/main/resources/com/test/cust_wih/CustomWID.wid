@@ -1,15 +1,13 @@
 [
   [
-    "name" : "MyTask", 
+    "name" : "CustomTask", 
     "parameters" : [ 
-        "MyFirstParam" : new StringDataType(), 
-        "MySecondParam" : new StringDataType(), 
-        "MyThirdParam" : new ObjectDataType() 
+        "Message" : new StringDataType()
     ], 
     "results" : [ 
-        "Result" : new ObjectDataType("java.util.Map") 
+        "Result" : new StringDataType() 
     ], 
-    "displayName" : "My Task", 
+    "displayName" : "Custom WIH Task", 
     "icon" : "" 
   ]
 ]
