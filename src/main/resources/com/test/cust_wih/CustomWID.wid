@@ -1,0 +1,15 @@
+[
+  [
+    "name" : "MyTask", 
+    "parameters" : [ 
+        "MyFirstParam" : new StringDataType(), 
+        "MySecondParam" : new StringDataType(), 
+        "MyThirdParam" : new ObjectDataType() 
+    ], 
+    "results" : [ 
+        "Result" : new ObjectDataType("java.util.Map") 
+    ], 
+    "displayName" : "My Task", 
+    "icon" : "" 
+  ]
+]
