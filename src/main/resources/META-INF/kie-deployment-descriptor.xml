@@ -12,7 +12,7 @@
     <work-item-handlers>
         <work-item-handler>
             <resolver>mvel</resolver>
-            <identifier>new com.bala.custom.wih.CustomWIH()</identifier>
+            <identifier>new com.test.cust_wih.CustomWIH()</identifier>
             <parameters/>
             <name>CustomTask</name>
         </work-item-handler>
