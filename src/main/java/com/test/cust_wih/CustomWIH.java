@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jbpm.workflow.instance.WorkflowProcessInstance;
-import org.kie.api.runtime.KieSession;
+import org.kie.api.runtime.KieRuntime;
 import org.kie.api.runtime.process.WorkItem;
 import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.runtime.process.WorkItemManager;
@@ -17,7 +17,7 @@ public class CustomWIH implements WorkItemHandler {
 
 	public void executeWorkItem(WorkItem workItem, WorkItemManager manager) {
 		Object param1 = workItem.getParameter("Message");
-		Object param2 = workItem.getParameter("KieSession");
+		Object param2 = workItem.getParameter("KieRuntime");
 		
 		System.out.println("Do your custom logic here with your param - " + param1);
 
@@ -25,8 +25,8 @@ public class CustomWIH implements WorkItemHandler {
 		resultMap.put("Result", "Executed CustomWIH successfully");
 		manager.completeWorkItem(workItem.getId(), resultMap);
 		
-		KieSession ks =(KieSession) param2;
-		Map<String, Object> metaDataMap = ((WorkflowProcessInstance)ks.getProcessInstance(workItem.getProcessInstanceId())).getMetaData();
+		KieRuntime kr =(KieRuntime) param2;
+		Map<String, Object> metaDataMap = ((WorkflowProcessInstance)kr.getProcessInstance(workItem.getProcessInstanceId())).getMetaData();
 		
 		for (Map.Entry<String, Object> entry : metaDataMap.entrySet()) {
 	        System.out.println(entry.getKey() + ":" + entry.getValue());
