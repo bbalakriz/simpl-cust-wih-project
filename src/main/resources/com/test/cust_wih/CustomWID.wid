@@ -2,7 +2,8 @@
   [
     "name" : "CustomTask", 
     "parameters" : [ 
-        "Message" : new StringDataType()
+        "Message" : new StringDataType(),
+        "KieSession" : new ObjectDataType()
     ], 
     "results" : [ 
         "Result" : new StringDataType() 
