@@ -24,9 +24,6 @@ public class CustomWIH implements WorkItemHandler {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("Result", "Executed CustomWIH successfully");
 
-		org.kie.server.api.model.instance.ProcessInstance kr =(org.kie.server.api.model.instance.ProcessInstance) param2;
-		System.out.println(kr.getContainerId());
-	    
 	    manager.completeWorkItem(workItem.getId(), resultMap);
 	}
 
