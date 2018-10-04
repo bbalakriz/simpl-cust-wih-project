@@ -25,6 +25,7 @@ public class CustomWIH implements WorkItemHandler {
 		resultMap.put("Result", "Executed CustomWIH successfully");
 
 		ProcessInstance kr =(ProcessInstance) param2;
+		System.out.println(kr);
 		
 		if (null != kr){
         	Map<String, Object> metaDataMap = ((WorkflowProcessInstance)kr).getMetaData();
