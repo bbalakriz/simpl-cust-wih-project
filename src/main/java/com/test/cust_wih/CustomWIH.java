@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.jbpm.workflow.instance.WorkflowProcessInstance;
-import org.kie.api.runtime.KieRuntime;
+import org.kie.api.runtime.process.ProcessContext;
 import org.kie.api.runtime.process.WorkItem;
 import org.kie.api.runtime.process.WorkItemHandler;
 import org.kie.api.runtime.process.WorkItemManager;
@@ -24,11 +24,13 @@ public class CustomWIH implements WorkItemHandler {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("Result", "Executed CustomWIH successfully");
 
-		KieRuntime kr =(KieRuntime) param2;
-		Map<String, Object> metaDataMap = ((WorkflowProcessInstance)kr.getProcessInstance(workItem.getProcessInstanceId())).getMetaData();
-		
-		for (Map.Entry<String, Object> entry : metaDataMap.entrySet()) {
-	        System.out.println(entry.getKey() + ":" + entry.getValue());
+		ProcessContext kr =(ProcessContext) param2;
+		if (null != kr){
+    		Map<String, Object> metaDataMap = ((WorkflowProcessInstance)kr.getProcessInstance()).getMetaData();
+    		
+    		for (Map.Entry<String, Object> entry : metaDataMap.entrySet()) {
+    	        System.out.println(entry.getKey() + ":" + entry.getValue());
+    	    }
 	    }
 	    
 	    manager.completeWorkItem(workItem.getId(), resultMap);
