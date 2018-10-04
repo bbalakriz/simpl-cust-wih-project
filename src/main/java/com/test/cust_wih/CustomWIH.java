@@ -23,14 +23,15 @@ public class CustomWIH implements WorkItemHandler {
 
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		resultMap.put("Result", "Executed CustomWIH successfully");
-		manager.completeWorkItem(workItem.getId(), resultMap);
-		
+
 		KieRuntime kr =(KieRuntime) param2;
 		Map<String, Object> metaDataMap = ((WorkflowProcessInstance)kr.getProcessInstance(workItem.getProcessInstanceId())).getMetaData();
 		
 		for (Map.Entry<String, Object> entry : metaDataMap.entrySet()) {
 	        System.out.println(entry.getKey() + ":" + entry.getValue());
 	    }
+	    
+	    manager.completeWorkItem(workItem.getId(), resultMap);
 	}
 
 	class MyClass extends Thread {
